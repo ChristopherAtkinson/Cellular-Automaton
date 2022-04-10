@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace ChristopherAtkinson.CellularAutomaton
 {
@@ -12,6 +12,9 @@ namespace ChristopherAtkinson.CellularAutomaton
         [SerializeField] private ComputeShader m_ComputeShader;
         [SerializeField] private string m_KernelName;
 
+        [Header("Unity Event Configuration")]
+        [SerializeField] private UnityEvent<RenderTexture> OnAfterRenderTextureEnable;
+
         private void OnEnable()
         {
             RenderTexture renderTexture = new RenderTexture(m_RenderTexture);
@@ -21,8 +24,7 @@ namespace ChristopherAtkinson.CellularAutomaton
             m_ComputeShader.SetTexture(kernel, "Result", renderTexture);
             m_ComputeShader.Dispatch(kernel, (renderTexture.width / 32) + 1, (renderTexture.height / 32) + 1, 1);
 
-            if (TryGetComponent(out RawImage rawImage))
-                rawImage.texture = renderTexture;
+            OnAfterRenderTextureEnable?.Invoke(renderTexture);
         }
 
         private void OnDisable()
