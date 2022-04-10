@@ -8,6 +8,13 @@
     "author": {
         "name": "Christopher Atkinson",
         "url": "https://christopheratkinson.github.io/"
-    }
+    },
+    "samples": [
+        {
+            "displayName": "Conway's Game of Life",
+            "description": "Contains sample scene demonstrating Conway's Game of Life using compute shaders",
+            "path": "Samples~/The Game of Life (John Horton Conway)"
+        }
+    ]
 }
   
