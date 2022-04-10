@@ -1,6 +1,6 @@
 {
     "name": "com.christopheratkinson.cellularautomaton.tests",
-    "rootNamespace": "",
+    "rootNamespace": "ChristopherAtkinson.CellularAutomaton",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

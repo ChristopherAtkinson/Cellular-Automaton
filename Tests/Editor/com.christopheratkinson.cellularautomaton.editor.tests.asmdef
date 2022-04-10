@@ -1,3 +1,14 @@
 {
-	"name": "com.christopheratkinson.cellularautomaton.editor.tests"
+    "name": "com.christopheratkinson.cellularautomaton.editor.tests",
+    "rootNamespace": "ChristopherAtkinson.CellularAutomaton.Editor",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
