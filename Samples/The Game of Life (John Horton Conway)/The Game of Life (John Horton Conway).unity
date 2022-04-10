@@ -472,4 +472,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RenderTexture: {fileID: 8400000, guid: c8385d6d6222f5645a6af459dc2edba0, type: 2}
+  m_KernelName: CSMain
   m_ComputeShader: {fileID: 7200000, guid: a0f866b0ed68d6041ba184f5a75e44d8, type: 3}
