@@ -15,20 +15,33 @@ namespace ChristopherAtkinson.CellularAutomaton
         [Header("Unity Event Configuration")]
         [SerializeField] private UnityEvent<RenderTexture> OnAfterRenderTextureEnable;
 
+        [Header("Simulation Rate Configuration")]
+        [SerializeField] private float m_RepeatRate;
+        private System.Collections.IEnumerator m_Coroutine;
+
         private void OnEnable()
         {
             RenderTexture renderTexture = new RenderTexture(m_RenderTexture);
             renderTexture.enableRandomWrite = true;
 
+            OnAfterRenderTextureEnable?.Invoke(renderTexture);
+
+            m_Coroutine = DispatchComputeShader(renderTexture);
+            StartCoroutine(m_Coroutine);
+        }
+
+        private System.Collections.IEnumerator DispatchComputeShader(RenderTexture renderTexture)
+        {
             var kernel = m_ComputeShader.FindKernel(m_KernelName);
             m_ComputeShader.SetTexture(kernel, "Result", renderTexture);
             m_ComputeShader.Dispatch(kernel, (renderTexture.width / 32) + 1, (renderTexture.height / 32) + 1, 1);
 
-            OnAfterRenderTextureEnable?.Invoke(renderTexture);
+            yield return new WaitForSeconds(m_RepeatRate);
         }
 
         private void OnDisable()
         {
+            StopCoroutine(m_Coroutine);
             m_RenderTexture.Release();
         }
     }
