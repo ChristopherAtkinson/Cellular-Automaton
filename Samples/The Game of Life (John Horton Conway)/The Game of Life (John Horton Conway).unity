@@ -397,6 +397,7 @@ GameObject:
   - component: {fileID: 1088503336}
   - component: {fileID: 1088503338}
   - component: {fileID: 1088503337}
+  - component: {fileID: 1088503339}
   m_Layer: 5
   m_Name: Render Texture (RawImage)
   m_TagString: Untagged
@@ -458,3 +459,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088503335}
   m_CullTransparentMesh: 1
+--- !u!114 &1088503339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088503335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f20ac6cd5cbf4747a691a149b80ac06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderTexture: {fileID: 8400000, guid: c8385d6d6222f5645a6af459dc2edba0, type: 2}
+  m_ComputeShader: {fileID: 7200000, guid: a0f866b0ed68d6041ba184f5a75e44d8, type: 3}
