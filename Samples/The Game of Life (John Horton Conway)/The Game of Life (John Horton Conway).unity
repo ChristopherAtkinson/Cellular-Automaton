@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 369597993}
   - component: {fileID: 369597992}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: Unity Technologies Event System (EventSystem)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 737855987}
   - component: {fileID: 737855986}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Unity Technologies Primary Canvas (Canvas)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 1070035031}
   - component: {fileID: 1070035034}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Unity Technologies Main Camera (Camera)
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 1088503338}
   - component: {fileID: 1088503337}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Render Texture (RawImage)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
