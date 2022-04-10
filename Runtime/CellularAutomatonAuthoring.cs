@@ -9,8 +9,8 @@ namespace ChristopherAtkinson.CellularAutomaton
         [SerializeField] private RenderTexture m_RenderTexture;
 
         [Header("Compute Shader Configuration")]
-        [SerializeField] private string m_KernelName = "CSMain";
         [SerializeField] private ComputeShader m_ComputeShader;
+        [SerializeField] private string m_KernelName;
 
         private void OnEnable()
         {
