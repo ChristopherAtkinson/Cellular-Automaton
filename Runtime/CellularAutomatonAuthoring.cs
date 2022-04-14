@@ -34,7 +34,7 @@ namespace ChristopherAtkinson.CellularAutomaton
         {
             var kernel = m_ComputeShader.FindKernel(m_KernelName);
             m_ComputeShader.SetTexture(kernel, "Result", renderTexture);
-            m_ComputeShader.Dispatch(kernel, (renderTexture.width / 32) + 1, (renderTexture.height / 32) + 1, 1);
+            m_ComputeShader.Dispatch(kernel, (renderTexture.width / 8) + 1, (renderTexture.height / 8) + 1, 1);
 
             yield return new WaitForSeconds(m_RepeatRate);
         }
