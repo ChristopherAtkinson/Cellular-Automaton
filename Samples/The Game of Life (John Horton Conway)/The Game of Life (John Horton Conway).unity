@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f20ac6cd5cbf4747a691a149b80ac06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Texture2D: {fileID: 2800000, guid: 5ee0a53c67d5d544e8f17c070a2b5143, type: 3}
+  m_Texture2D: {fileID: 2800000, guid: a29ab35e9682be947842fdf260f45e51, type: 3}
   m_ComputeShader: {fileID: 7200000, guid: 8048c91280a1a914d930b71189328b3c, type: 3}
   m_KernelName: CSMain
   OnAfterRenderTextureEnable:
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: a29ab35e9682be947842fdf260f45e51, type: 3}
+  m_Texture: {fileID: 0}
   m_UVRect:
     serializedVersion: 2
     x: 0
