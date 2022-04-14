@@ -16,7 +16,7 @@ namespace ChristopherAtkinson.CellularAutomaton
         [SerializeField] private UnityEvent<RenderTexture> OnAfterRenderTextureEnable;
 
         [Header("Simulation Rate Configuration")]
-        [SerializeField] private float m_RepeatRate;
+        [SerializeField, Range(0, 240)] private float m_SimulationRate;
         private System.Collections.IEnumerator m_Coroutine;
 
         private void OnEnable()
@@ -24,7 +24,7 @@ namespace ChristopherAtkinson.CellularAutomaton
             RenderTexture renderTexture = new RenderTexture(m_Texture2D.width, m_Texture2D.height, 24);
             renderTexture.enableRandomWrite = true;
 
-            Graphics.Blit(m_Texture2D, renderTexture);
+                Graphics.Blit(m_Texture2D, renderTexture);
 
             OnAfterRenderTextureEnable?.Invoke(renderTexture);
 
@@ -40,7 +40,7 @@ namespace ChristopherAtkinson.CellularAutomaton
                 m_ComputeShader.SetTexture(kernel, "Result", renderTexture);
                 m_ComputeShader.Dispatch(kernel, (renderTexture.width / 8) + 1, (renderTexture.height / 8) + 1, 1);
 
-                yield return new WaitForSeconds(m_RepeatRate);
+                yield return new WaitForSeconds(1.0f / m_SimulationRate);
             }
         }
 
