@@ -21,10 +21,10 @@ namespace ChristopherAtkinson.CellularAutomaton
 
         private void OnEnable()
         {
-            RenderTexture renderTexture = new RenderTexture(m_Texture2D.width, m_Texture2D.height, 24);
+            RenderTexture renderTexture = new RenderTexture(m_Texture2D.width, m_Texture2D.height, 0);
             renderTexture.enableRandomWrite = true;
 
-                Graphics.Blit(m_Texture2D, renderTexture);
+            Graphics.Blit(m_Texture2D, renderTexture);
 
             OnAfterRenderTextureEnable?.Invoke(renderTexture);
 
