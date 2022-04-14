@@ -22,6 +22,7 @@ namespace ChristopherAtkinson.CellularAutomaton
         private void OnEnable()
         {
             RenderTexture renderTexture = new RenderTexture(m_Texture2D.width, m_Texture2D.height, 0);
+            renderTexture.filterMode = m_Texture2D.filterMode;
             renderTexture.enableRandomWrite = true;
 
             Graphics.Blit(m_Texture2D, renderTexture);
