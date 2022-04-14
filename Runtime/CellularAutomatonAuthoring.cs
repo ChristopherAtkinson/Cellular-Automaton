@@ -32,11 +32,14 @@ namespace ChristopherAtkinson.CellularAutomaton
 
         private System.Collections.IEnumerator DispatchComputeShader(RenderTexture renderTexture)
         {
-            var kernel = m_ComputeShader.FindKernel(m_KernelName);
-            m_ComputeShader.SetTexture(kernel, "Result", renderTexture);
-            m_ComputeShader.Dispatch(kernel, (renderTexture.width / 8) + 1, (renderTexture.height / 8) + 1, 1);
+            while (true)
+            {
+                var kernel = m_ComputeShader.FindKernel(m_KernelName);
+                m_ComputeShader.SetTexture(kernel, "Result", renderTexture);
+                m_ComputeShader.Dispatch(kernel, (renderTexture.width / 8) + 1, (renderTexture.height / 8) + 1, 1);
 
-            yield return new WaitForSeconds(m_RepeatRate);
+                yield return new WaitForSeconds(m_RepeatRate);
+            }
         }
 
         private void OnDisable()
