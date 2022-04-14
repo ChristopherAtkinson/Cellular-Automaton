@@ -5,8 +5,8 @@ namespace ChristopherAtkinson.CellularAutomaton
 {
     public class CellularAutomatonAuthoring : MonoBehaviour
     {
-        [Header("Render Texture Configuration")]
-        [SerializeField] private RenderTexture m_RenderTexture;
+        [Header("Source Texture Configuration")]
+        [SerializeField] private Texture2D m_Texture2D;
 
         [Header("Compute Shader Configuration")]
         [SerializeField] private ComputeShader m_ComputeShader;
@@ -21,8 +21,10 @@ namespace ChristopherAtkinson.CellularAutomaton
 
         private void OnEnable()
         {
-            RenderTexture renderTexture = new RenderTexture(m_RenderTexture);
+            RenderTexture renderTexture = new RenderTexture(m_Texture2D.width, m_Texture2D.height, 24);
             renderTexture.enableRandomWrite = true;
+
+            Graphics.Blit(m_Texture2D, renderTexture);
 
             OnAfterRenderTextureEnable?.Invoke(renderTexture);
 
@@ -45,7 +47,6 @@ namespace ChristopherAtkinson.CellularAutomaton
         private void OnDisable()
         {
             StopCoroutine(m_Coroutine);
-            m_RenderTexture.Release();
         }
     }
 }
