@@ -2,23 +2,20 @@
 
 RWTexture2D<float4> Result;
 
+// Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+// Any live cell with two or three live neighbours lives on to the next generation.
+// Any live cell with more than three live neighbours dies, as if by overpopulation.
+// Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
 [numthreads(8,8,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
-    int sum = 0;
-    for (int x = -1; x <= 1; x++) {
-        for (int y = -1; y <= 1; y++) {
-            if (x == 0 && y == 0) continue;
-            if (Result[id.xy + float2(x, y)].x > 0) sum++;
-        }
+    int neighbours = 0;
+    for (int x = -1; x <= 1; x++) for (int y = -1; y <= 1; y++) {
+        neighbours += (Result[id.xy + float2(x, y)].x > 0) && !(x == 0 && y == 0);
     }
 
-    if (Result[id.xy].x > 0)
-    {
-        Result[id.xy] = (sum == 2 || sum == 3) ? float4(1, 1, 1, 1) : float4(0, 0, 0, 1);
-    }
-    else
-    {
-        Result[id.xy] = (sum == 3) ? float4(1, 1, 1, 1) : float4(0, 0, 0, 1);
-    }
+    bool living = Result[id.xy].x > 0;
+    bool color = (living == 1 && (neighbours == 2 || neighbours == 3)) || (living == 0 && (neighbours == 3));
+    Result[id.xy] = float4(color, color, color, 1);
 }
